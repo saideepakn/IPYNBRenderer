@@ -35,7 +35,7 @@ setuptools.setup(
         # "Intended Audience :: Developers",
         # "Operating System :: OS Independent",
         # "Natural Language
-    }
+    },
     package_dir = {"": "src"},
     packages = setuptools.find_packages(where = "src"),
 
