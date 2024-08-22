@@ -10,12 +10,13 @@ os.makedirs(log_dir, exist_ok=True)
 
 logging.basicConfig(
     level=logging.INFO,
-    format= logging_str,
-    handlers= [
+    format=logging_str,
+    handlers=[
         logging.FileHandler(log_filepath),
-        logging.StreamHandler(sys.stdout),  # Logs to console too for debugging purposes.
-    ]
-    )
+        logging.StreamHandler(
+            sys.stdout
+        ),  # Logs to console too for debugging purposes.
+    ],
+)
 
 logger = logging.getLogger("IPYNBrenderer")
-
