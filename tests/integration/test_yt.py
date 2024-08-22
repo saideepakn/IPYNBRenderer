@@ -1,5 +1,5 @@
 import pytest
-from IPYNBrenderer import render_Youtube_video
+from IPYNBrenderer import render_Youtube_video  # noqa: F401
 from IPYNBrenderer.custom_exception import InvalidURLException
 
 
