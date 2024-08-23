@@ -1,10 +1,11 @@
 from IPython import display
-from ensure import ensure_annotations  # to ensure the input follows strict datatype
+from ensure import ensure_annotations
 from IPYNBrenderer.custom_exception import InvalidURLException
 from IPYNBrenderer.logger import logger
 from py_youtube import Data
 
 
+@ensure_annotations
 def get_time_info(URL: str) -> int:
     def _verify_vid_id_len(vid_id, __expected_len=11):
         len_of_vid_id = len(vid_id)
@@ -39,13 +40,12 @@ def get_time_info(URL: str) -> int:
                 _verify_vid_id_len(vid_id)
                 logger.info(f"video starts at: {time}")
                 return time
-
     except Exception:
         raise InvalidURLException
 
 
 @ensure_annotations
-def render_Youtube_video(URL: str, width: int = 780, height: int = 600) -> str:
+def render_YouTube_video(URL: str, width: int = 780, height: int = 600) -> str:
     try:
         if URL is None:
             raise InvalidURLException("URL cannot be None")
@@ -55,20 +55,20 @@ def render_Youtube_video(URL: str, width: int = 780, height: int = 600) -> str:
             vid_ID = data["id"]
             embed_URL = f"https://www.youtube.com/embed/{vid_ID}?start={time}"
             logger.info(f"embed URL: {embed_URL}")
-            iframe = f"""
-            <iframe width="{width}" height="{height}"
+            iframe = f"""<iframe
+            width="{width}" height="{height}"
             src="{embed_URL}"
-            title="YouTube video player" frameborder="0" allow="accelerometer;
-            autoplay; clipboard-write; encrypted-media; gyroscope;
-            picture-in-picture; web-share"
-            referrerpolicy="strict-origin-when-cross-origin"
-            allowfullscreen>
+            title="YouTube video player"
+            frameborder="0"
+            allow="accelerometer;
+            autoplay; clipboard-write;
+            encrypted-media; gyroscope;
+            picture-in-picture" allowfullscreen>
             </iframe>
             """
             display.display(display.HTML(iframe))
             return "success"
         else:
             raise InvalidURLException
-
     except Exception as e:
         raise e

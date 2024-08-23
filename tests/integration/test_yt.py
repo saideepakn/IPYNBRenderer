@@ -1,5 +1,5 @@
 import pytest
-from IPYNBrenderer import render_Youtube_video  # noqa: F401
+from IPYNBrenderer import render_YouTube_video  # noqa: F401
 from IPYNBrenderer.custom_exception import InvalidURLException
 
 
@@ -21,9 +21,9 @@ class TestYTvideoRenderer:
 
     @pytest.mark.parametrize("URL, response", URL_test_success_data)
     def test_render_YT_success(self, URL, response):
-        assert render_Youtube_video(URL) == response
+        assert render_YouTube_video(URL) == response
 
     @pytest.mark.parametrize("URL", URL_test_bad_data)
     def test_render_YT_failed(self, URL):
         with pytest.raises(InvalidURLException):
-            render_Youtube_video(URL)
+            render_YouTube_video(URL)
