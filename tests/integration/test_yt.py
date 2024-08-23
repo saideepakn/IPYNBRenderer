@@ -10,9 +10,9 @@ class TestYTvideoRenderer:
         ("https://www.youtube.com/watch?v=roO5VGxOw2s&t=42s", "success"),
     ]
     URL_test_bad_data = [
+        ("https://www.youtube.com/watch?v=roO5VGxOw__"),
         ("https://www.youtube.com/watch?v=roO5VGxOw2sahesbf"),
         ("https://www.youtube.com/watch?v=roO5VGxOw00"),
-        ("https://www.youtube.com/watch?v=roO5VGxOw__"),
         ("https://www.youtube.com/watch?v=roO5VGxOwpp"),
         ("https://www.youtube.com/watch?v=roO5VGxOw2s&t"),
         ("https://www.youtube.com/watch?v=roO5VGxOw2s&t==22s"),
